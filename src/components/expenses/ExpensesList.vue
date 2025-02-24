@@ -5,8 +5,8 @@
 <script setup>
 import { 
   expenses, 
-  formatCurrency, 
-  getExpensePercentage 
+  getExpensePercentage, 
+  formatCurrency 
 } from '../../stores/finance'
 </script>
 

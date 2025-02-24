@@ -135,9 +135,10 @@ export const monthlyBalance = computed(() => {
 // Calculate financial ratios for expenses, savings, and others
 export const financialRatios = computed(() => {
   const total = totalIncome.value
-  const expenseRatio = totalExpenses.value / total
-  const othersRatio = totalOthers.value / total
-  const savingsRatio = 1 - expenseRatio - othersRatio
+  const expenseRatio = (totalExpenses.value / total)
+  const othersRatio = (totalOthers.value / total)
+  // Adjust savings to be the remainder, ensuring ratios sum to 1
+  const savingsRatio = Math.max(0, 1 - expenseRatio - othersRatio)
   
   return {
     expenses: expenseRatio,
@@ -170,12 +171,12 @@ export const getIncomePercentage = (amount) => {
 }
 
 /**
- * Calculate what percentage an expense amount represents of total income
+ * Calculate what percentage an expense amount represents of total expenses
  * @param {number} amount - The expense amount
  * @returns {string} Percentage with one decimal place
  */
 export const getExpensePercentage = (amount) => {
-  return ((amount / totalIncome.value) * 100).toFixed(1)
+  return ((amount / totalExpenses.value) * 100).toFixed(1)
 }
 
 /**
@@ -185,9 +186,11 @@ export const getExpensePercentage = (amount) => {
  * @returns {string} CSS height value in pixels
  */
 export const getChartSegmentHeight = (value, type) => {
-  const baseHeight = 45
+  const baseHeight = 60
   const scale = (value / Math.max(...monthlyData.value))
   const ratios = financialRatios.value
+  
+  const othersMultiplier = 1.5
   
   switch (type) {
     case 'income':
@@ -197,7 +200,9 @@ export const getChartSegmentHeight = (value, type) => {
     case 'savings':
       return `${baseHeight * scale * ratios.savings}px`
     case 'others':
-      return `${baseHeight * scale * ratios.others}px`
+      const minHeight = 12
+      const calculatedHeight = baseHeight * scale * ratios.others * othersMultiplier
+      return `${Math.max(calculatedHeight, minHeight)}px`
   }
 }
 

@@ -5,8 +5,8 @@
 <script setup>
 import { 
   incomeItems, 
-  formatCurrency, 
-  getIncomePercentage 
+  getIncomePercentage, 
+  formatCurrency 
 } from '../../stores/finance'
 </script>
 
@@ -44,6 +44,6 @@ import {
 </template>
 
 <style lang="less" scoped>
-@import '../../assets/styles/shared/_card.less';
+@import '../../assets/styles/shared/_list.less';
 @import '../../assets/styles/components/_income-section.less';
 </style> 
