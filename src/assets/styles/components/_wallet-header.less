@@ -1,0 +1,44 @@
+.wallet-header {
+  background: rgba(138, 79, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: @border-radius-lg 0 0 0;
+  padding: @spacing-lg;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  .balance-section {
+    text-align: left;
+    margin-bottom: @spacing-base;
+  }
+
+  .balance-label {
+    font-size: @font-size-xl;
+    font-weight: 600;
+    color: @white;
+    margin: 0 0 @spacing-sm 0;
+  }
+
+  .balance-value {
+    font-size: @font-size-3xl;
+    font-weight: 700;
+    color: @white;
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 768px) {
+  .wallet-header {
+    padding: @spacing-base;
+
+    .balance-label {
+      font-size: @font-size-xl;
+    }
+
+    .balance-value {
+      font-size: @font-size-2xl;
+    }
+  }
+} 

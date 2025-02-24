@@ -1,0 +1,51 @@
+.balance-section-card {
+  .base-card();
+  height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+  }
+
+  .chart-container {
+    flex: 1;
+    padding: 0 @spacing-base @spacing-base;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+  }
+
+  .desktop-chart {
+    display: block;
+    min-width: 0;
+    height: 100%;
+  }
+
+  .mobile-chart {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .balance-section-card {
+    .desktop-chart {
+      display: none;
+    }
+
+    .mobile-chart {
+      display: block;
+    }
+
+    .chart-container {
+      padding: 0 @spacing-sm @spacing-sm;
+      min-height: 160px;
+    }
+  }
+} 

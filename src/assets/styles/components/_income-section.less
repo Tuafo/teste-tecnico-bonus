@@ -1,0 +1,37 @@
+.income-section-card {
+  .section-card();
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.income-header {
+  .card-header();
+
+  .total-value {
+    color: @income-color;
+  }
+}
+
+.income-list {
+  .list-container();
+
+  .income-item {
+    .list-item();
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .income-progress {
+    .progress-container();
+  }
+
+  .income-details {
+    .item-details();
+
+    .amount {
+      color: @income-color;
+    }
+  }
+} 

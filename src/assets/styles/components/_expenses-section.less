@@ -1,0 +1,47 @@
+.expenses-section-card {
+  .section-card();
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.expenses-header {
+  .card-header();
+
+  .total-value {
+    color: @expense-color;
+  }
+}
+
+.expenses-list {
+  .list-container();
+
+  .expense-item {
+    .list-item();
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .expense-progress {
+    .progress-container();
+  }
+
+  .expense-details {
+    .item-details();
+
+    .amount {
+      color: @expense-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .expenses-section-card {
+    .columns-container {
+      grid-template-columns: 1fr;
+      gap: @spacing-base;
+      padding: @spacing-base;
+    }
+  }
+} 
